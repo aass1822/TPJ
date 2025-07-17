@@ -13,27 +13,105 @@
             padding: 0;
             font-family: sans-serif;
             font-size: 16px;
-            
+            text-decoration: none;
         }
-        body{
+
+        body {
             background-color: white;
             color: black;
         }
-        .wrapper{
+
+        .wrapper {
             width: 100%;
             max-width: 1920px;
             margin: 0 auto;
         }
-        main{
+
+        main {
             padding: 40px;
         }
-        section{
+
+        section {
             background-color: white;
             padding: 30px;
             margin-bottom: 40px;
             border-radius: 10px;
         }
 
+        .sitemenu{
+            padding: 20px;
+            position: relative;
+        }
+
+        .sitemenu>input[type="checkbox"]{
+            display: none;
+        }
+        .sitemenu>label{}
+        .sitemenu>label>span{
+            display: block;
+            width: 25px; height: 2px;
+            background-color: black;
+            margin: 8px;
+
+            transition: 0.3s;
+        }
+        .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(1){
+            transform: translate(0px,10px) rotate(45deg);
+        }
+        .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(2){
+            opacity: 0; /* 투명도 0 opacity*/
+        }   
+        .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(3){
+            transform: translate(0px,-10px) rotate(-45deg);
+        }
+        .site-block{
+            width: 0%;
+            height: 0px;
+            margin-top: 25px;
+            position: absolute;
+            top: 60px;
+        }
+
+        .sitemenu>input[type="checkbox"]:checked~.site-block{
+            width: 95%;
+            height: 500px;
+            border: 1px solid;
+        }
+
+        .wrapper>header{
+            text-align: center;
+            /* padding-top: 15px; */
+            /* padding-bottom: 15px; */
+            margin: 0;
+            border-bottom: 1px solid;
+            border-color:lightgray;
+        }
+        .wrapper>header>.header1{
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 0px 2px 5px gray;
+            color: green;
+        }
+        .wrapper>header>.header2{
+            text-align: center;
+            width: 50px;
+            display: flex;
+            color: black;
+            margin-left: 85vw;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        nav>.mainmenu{
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        
+        
     </style>
 
 </head>
@@ -42,21 +120,35 @@
 
     <div class="wrapper">
         <header>
-            <h1>대구특별시</h1>
-            <nav>
-                <p>메뉴</p>
-            </nav>
+            <a class="header1" href="javascrtipt:void(0)">대구광역시</a>
+            <a class="header2" href="javascrtipt:void(0)">로그인</a>
+            <div class="sitemenu">
+        <input type="checkbox" id="chk">
+        <label for="chk">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="site-block">
+
+        </div>
+    </div>
         </header>
-        <main>
-            <section>조원</section>
+    </div>
 
-            <section>조원</section>
+    <nav>
+        <h2 class="logo">로고</h2>
+        <ul class="mainmenu">
+            <li>민원·소통·참여</li>
+            <li>정보공개</li>
+            <li>대구소개</li>
+            <li>분야별정보</li>
+        </ul>
+    </nav>
 
-            <section>조원</section>
-        </main>
-        <footer>
-
-        </footer>
+    <footer>
+        
+    </footer>
     </div>
 
 
