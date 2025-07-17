@@ -39,7 +39,7 @@
             background-color: mistyrose;
             border-radius: 25px;
             width: 1280px;
-            height: 300px;}
+            height: 400px;}
 
         .wrapper>main>.search>.search-input{
             display: flex;
@@ -50,20 +50,33 @@
             padding: 5px 10px;
         }
         .wrapper>main>.search>.search-input>.search-icon{
-            padding-right: 20px;
+
          }
         .wrapper>main>.search>.weather{
+            height: 50px;
+            display: flex;
+            gap: 60px;
+            margin: 0px auto 40px auto;
+        }
+
+        .wrapper>main>.search>.weather>.weather-text{
+            font-size: 50px;
+        }
+
+        .wrapper>main>.search>.weather>.weather-icon{
 
         }
+        .wrapper>main>.search>.weather>.weather-text{
+        }
         .wrapper>main>.search>hr{
+            display: flex;
             width: 1000px;
-            background-color: lightslategray;
-            align-items: center;
+            justify-content: center;
         }
 
         .wrapper>main>.search>.img{
             display: flex;
-            gap: 40px;
+            gap: 60px;
             justify-content: center;
             align-items: center;
            
@@ -74,10 +87,16 @@
             border: 1px solid;
             border-radius: 100%;
             text-align: center;
-            
-            
-            
-
+            background-color: white;
+            margin-top: 20px;
+        }
+        
+        .wrapper>main>.search>.img>div>div>.img-img{
+            margin-top: 20px;               
+        }
+        .wrapper>main>.search>.img>div>.img-msg{
+            margin-top: 30px;
+            font-weight: 700;
         }
         
 
@@ -105,32 +124,62 @@
                         검색어를 입력해 주세요.
                     </div>
                     <div class="search-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/158/158740.png". width="15", height="15">
+                        <img src="https://cdn-icons-png.flaticon.com/512/158/158740.png". width="15px", height="15px">
 
 
                     </div>
                 </div>
                 
                 <div class="weather">
-                    날씨
-
+                    <div class="weather-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/262/262109.png" alt="" width="60px", height="60px">
+                    </div>
+                    <div class="weather-text">
+                        22.3℃
+                    </div>
+                    <div class="weather-text">
+                        하루 종일 비
+                    </div>
                 </div>
                 <hr>
                 <div class="img">
                     <div>
-                        이미지
+                        <div>
+                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/1412/1412046.png" alt="" width="60px" height="60px">
+                        </div>
+                        <div class ="img-msg">청사안내</div>
                     </div>
                     <div>
-                        이미지
+                        <div>
+                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3000/3000409.png" alt="" width="60px" height="60px">
+                        </div>
+                        <div class ="img-msg">
+                            자유게시판
+                        </div>
                     </div>
                     <div>
-                        이미지
+                        <div>
+                            <img class="img-img" src="https://images.icon-icons.com/1603/PNG/512/news-newspaper-media-paper-press-article_108607.png" alt="" width=60px; height="60px">
+                        </div>
+                        <div class ="img-msg">
+                            대구 소식
+                        </div>
                     </div>
                     <div>
-                        이미지
+                        <div>
+                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3059/3059446.png" alt="" width="60px" height="60px">
+                        </div>
+                        <div class ="img-msg">
+                            전화번호 안내
+                        </div>
                     </div>
                     <div>
-                        이미지5
+                        <div>
+                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/2675/2675008.png" alt="" width="60px" height="60px">
+                        </div>
+                        <div class ="img-msg">
+                            행정 조직도
+                        </div>
                     </div>
                 </div>
             </div>
