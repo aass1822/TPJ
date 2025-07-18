@@ -55,7 +55,7 @@
       margin-bottom: 20px;
     }
 
-    .search-background {
+    .search-background{
       width: 1200px;
       height: 40px;
       background: linear-gradient(90deg, black, red);
@@ -74,6 +74,7 @@
       display: flex;
       align-items: center;
       padding: 0 15px;
+      justify-content: space-between;
       box-sizing: border-box;
     }
 
@@ -89,10 +90,9 @@
       display: flex;
       align-items: center;
     }
-    /* ========================== */
 
     .search .line {
-      background-color: lightslategray;
+      background-color: rgb(180, 192, 204);
       height: 2px;
       width: 1000px;
       margin: 20px auto;
@@ -116,7 +116,7 @@
       justify-content: center;
       align-items: center;
     }
-
+    /* 이미지 공간 안에서 수직으로 img, msg 배치 */
     .img>div {
       width: 100px;
       height: 100px;
@@ -155,7 +155,7 @@
         <div class="search-input">
           <div class="search-background">
             <div class="search-inner">
-              <input type="text" placeholder="검색어를 입력해 주세요." />
+              <div>검색어를 입력해 주세요</div> 
               <div class="search-icon">
                 <img src="https://cdn-icons-png.flaticon.com/512/158/158740.png" width="15" height="15" alt="검색 아이콘" />
               </div>
