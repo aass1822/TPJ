@@ -1,207 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            font-size: 16px;
-            
-        }
-        body{
-            background-color: white;
-            color: black;
-        }
-        .wrapper{
-            width: 100%;
-            max-width: 1920px;
-            margin: 0 auto;
-        }
-        main{
-            padding: 40px;
-        }
-        section{
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-        }
-        .wrapper>main>.search{
-            display: flex;
-            flex-direction: column;
-            background-color: mistyrose;
-            border-radius: 25px;
-            width: 1280px;
-            height: 400px;}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
 
-        .wrapper>main>.search>.search-input{
-            display: flex;
-            background-color: white;
-            border: 1px solid;
-            border-radius: 10px;
-            margin: 30px;
-            padding: 5px 10px;
-        }
-        .wrapper>main>.search>.search-input>.search-icon{
+    body {
+      background-color: white;
+      color: black;
+    }
 
-         }
-        .wrapper>main>.search>.weather{
-            height: 50px;
-            display: flex;
-            gap: 60px;
-            margin: 0px auto 40px auto;
-        }
+    .wrapper {
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
 
-        .wrapper>main>.search>.weather>.weather-text{
-            font-size: 50px;
-        }
+    main {
+      padding: 40px;
+    }
 
-        .wrapper>main>.search>.weather>.weather-icon{
+    section {
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+    }
 
-        }
-        .wrapper>main>.search>.weather>.weather-text{
-        }
-        .wrapper>main>.search>hr{
-            display: flex;
-            width: 1000px;
-            justify-content: center;
-        }
+    .search {
+      display: flex;
+      flex-direction: column;
+      background-color: mistyrose;
+      border-radius: 25px;
+      width: 1280px;
+      height: 400px;
+      padding: 30px;
+      margin: 0 auto;
+    }
 
-        .wrapper>main>.search>.img{
-            display: flex;
-            gap: 60px;
-            justify-content: center;
-            align-items: center;
-           
-        }
-        .wrapper>main>.search>.img>div{
-            width: 100px;
-            height: 100px;
-            border: 1px solid;
-            border-radius: 100%;
-            text-align: center;
-            background-color: white;
-            margin-top: 20px;
-        }
-        
-        .wrapper>main>.search>.img>div>div>.img-img{
-            margin-top: 20px;               
-        }
-        .wrapper>main>.search>.img>div>.img-msg{
-            margin-top: 30px;
-            font-weight: 700;
-        }
-        
+    /* ===== 검색창 관련 스타일 ===== */
+    .search-input {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
 
-    </style>
+    .search-background{
+      width: 1200px;
+      height: 40px;
+      background: linear-gradient(90deg, black, red);
+      border-radius: 10px;
+      padding: 2px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
 
+    .search-inner {
+      flex: 1;
+      height: 100%;
+      background-color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .search-inner input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .search-icon {
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search .line {
+      background-color: rgb(180, 192, 204);
+      height: 2px;
+      width: 1000px;
+      margin: 20px auto;
+      border: none;
+    }
+
+    .weather {
+      height: 50px;
+      display: flex;
+      gap: 60px;
+      margin: 0 auto 40px auto;
+    }
+
+    .weather-text {
+      font-size: 50px;
+    }
+
+    .img {
+      display: flex;
+      gap: 80px;
+      justify-content: center;
+      align-items: center;
+    }
+    /* 이미지 공간 안에서 수직으로 img, msg 배치 */
+    .img>div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+      border-radius: 100%;
+      text-align: center;
+      background-color: white;
+      margin-top: 20px;
+    }
+
+    .img-img {
+      margin-top: 20px;
+    }
+
+    .img-msg {
+      margin-top: 30px;
+      font-weight: 700;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrapper">
+    <header>
+      <h1>대구특별시</h1>
+      <nav>
+        <p>메뉴</p>
+      </nav>
+    </header>
 
-    <div class="wrapper">
-        <header>
-            <h1>대구특별시</h1>
-            <nav>
-                <p>메뉴</p>
-            </nav>
-        </header>
-        <main>
-            <section>조원</section>
+    <main>
+      <section>조원</section>
 
-            <hr>
-            
-            <div class="search">
-                <div class="search-input">
-                    <div>
-                        검색어를 입력해 주세요.
-                    </div>
-                    <div class="search-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/158/158740.png". width="15px", height="15px">
-
-
-                    </div>
-                </div>
-                
-                <div class="weather">
-                    <div class="weather-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/262/262109.png" alt="" width="60px", height="60px">
-                    </div>
-                    <div class="weather-text">
-                        22.3℃
-                    </div>
-                    <div class="weather-text">
-                        하루 종일 비
-                    </div>
-                </div>
-                <hr>
-                <div class="img">
-                    <div>
-                        <div>
-                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/1412/1412046.png" alt="" width="60px" height="60px">
-                        </div>
-                        <div class ="img-msg">청사안내</div>
-                    </div>
-                    <div>
-                        <div>
-                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3000/3000409.png" alt="" width="60px" height="60px">
-                        </div>
-                        <div class ="img-msg">
-                            자유게시판
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img class="img-img" src="https://images.icon-icons.com/1603/PNG/512/news-newspaper-media-paper-press-article_108607.png" alt="" width=60px; height="60px">
-                        </div>
-                        <div class ="img-msg">
-                            대구 소식
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3059/3059446.png" alt="" width="60px" height="60px">
-                        </div>
-                        <div class ="img-msg">
-                            전화번호 안내
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/2675/2675008.png" alt="" width="60px" height="60px">
-                        </div>
-                        <div class ="img-msg">
-                            행정 조직도
-                        </div>
-                    </div>
-                </div>
+      <hr />
+      <div class="search">
+        <div class="search-input">
+          <div class="search-background">
+            <div class="search-inner">
+              <div>검색어를 입력해 주세요</div> 
+              <div class="search-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/158/158740.png" width="15" height="15" alt="검색 아이콘" />
+              </div>
             </div>
+          </div>
+        </div>
 
-                
-                        
+        <div class="weather">
+          <div class="weather-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/262/262109.png" alt="" width="60" height="60" />
+          </div>
+          <div class="weather-text" style="color: red;">22.3℃</div>
+          <div class="weather-text">하루 종일 비</div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="img">
+          <div>
+            <div>
+              <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/1412/1412046.png" alt="" width="60" height="60" />
             </div>
+            <div class="img-msg">청사안내</div>
+          </div>
+          <div>
+            <div>
+              <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3000/3000409.png" alt="" width="60" height="60" />
+            </div>
+            <div class="img-msg">자유게시판</div>
+          </div>
+          <div>
+            <div>
+              <img class="img-img" src="https://images.icon-icons.com/1603/PNG/512/news-newspaper-media-paper-press-article_108607.png" alt="" width="60" height="60" />
+            </div>
+            <div class="img-msg">대구 소식</div>
+          </div>
+          <div>
+            <div>
+              <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3059/3059446.png" alt="" width="60" height="60" />
+            </div>
+            <div class="img-msg">전화번호 안내</div>
+          </div>
+          <div>
+            <div>
+              <img class="img-img" src="https://cdn-icons-png.flaticon.com/512/2675/2675008.png" alt="" width="60" height="60" />
+            </div>
+            <div class="img-msg">행정 조직도</div>
+          </div>
+        </div>
+      </div>
 
-            <section>
-                공지사항
-            </section>
-            
-            <hr>
-    
-            <section>조원</section>
-        </main>
-        <footer>
+      <section>공지사항</section>
+      <hr />
+      <section>조원</section>
+    </main>
 
-        </footer>
-    </div>
-
-
+    <footer></footer>
+  </div>
 </body>
 
 </html>
