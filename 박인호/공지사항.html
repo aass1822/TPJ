@@ -4,51 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .wrapper{
-            font-size: 10px;
-            padding: 10px;
-            
-        }
-        .wrapper>main>section>.card-container{
-            display: flex;
-            width: 100vw;
-            gap: 20px;
-            flex-wrap: wrap;
-            
-        }
-        .wrapper>main>section>.card-container>.card{
-            border: 1px solid;
-            border-radius: 10px;
-            padding: 10px;
+  <style>
+    .wrapper {
+      font-size: 10px;
+      padding: 10px;
+    }
 
-            flex-grow: 1;
-            flex-shrink: 0;
-            flex-basis: 480px;
-            max-width: 480px;
-        }
-    </style>
+    .wrapper > main > section > .card-container {
+      display: flex;
+      width: 100vw;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .card {
+      position: relative;
+      padding: 10px;
+      border-radius: 10px;
+      background: white;
+      z-index: 1;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 480px;
+      max-width: 480px;
+      box-sizing: border-box;
+      border: 1px solid #7dba9d;
+      box-shadow: 2px 2px 2px 2px #7dba9d
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 12px;
+      background: linear-gradient(45deg, rgb(198, 255, 192), rgb(0, 255, 200), rgb(132, 130, 238), rgb(15, 0, 128));
+      z-index: -1;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 16px;
+    }
+
+    h2 {
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  </style>
 </head>
 
 <body>
-
-    <div class="wrapper">
-        <main>
-            <section>
-                <h1>공지사항</h1>
-                <div class="card-container">
-                    <div class="card">
-                        <h2>전국민마음투자지원사업 안내</h2>
-                        <p>1.사업기간:2025년 연중(예산소진시 까지) 2.지원대상:우울,불안 등...</p>
-                    <div class="card">
-                        <h2>여름 온열질환 주의사항 안내</h2>
-                        <p>폭염 대비 온열질환 예방, 건강수칙 1. 물 자주 마시기 -갈증을 느끼...</p>
-                    <div class="card">
-                        <h2>장마철 주의사항 안내</h2>
-                        <p>장마철 대비 사고 예방수칙 1. 침수 위험 지역 피하기 -하천변이나 계곡 등...</p>
-            </section>
-        </main>
-    </div>
+  <div class="wrapper">
+    <main>
+      <section>
+        <h1>공지사항</h1>
+        <div class="card-container">
+          <div class="card">
+            <h2>전국민마음투자지원사업 안내</h2>
+            <p>1.사업기간:2025년 연중(예산소진시 까지)<br>2.지원대상:우울,불안 등...</p>
+          </div>
+          <div class="card">
+            <h2>여름 온열질환 주의사항 안내</h2>
+            <p>폭염 대비 온열질환 예방, 건강수칙<br>1. 물 자주 마시기 - 갈증을 느끼기 전에...</p>
+          </div>
+          <div class="card">
+            <h2>장마철 주의사항 안내</h2>
+            <p>장마철 대비 사고 예방수칙<br>1. 침수 위험 지역 피하기 - 하천변이나 계곡 등...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
     
 </body>
 </html>
