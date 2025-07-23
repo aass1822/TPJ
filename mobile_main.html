@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>대구특별시 모바일</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #000;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        header.header {
+            height: 60px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .util a {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .menu-btn {
+            width: 25px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+            display: block;
+        }
+
+        .menu-btn span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #333;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .menu-btn span:nth-child(1) {
+            top: 0;
+        }
+
+        .menu-btn span:nth-child(2) {
+            top: 7.5px;
+        }
+
+        .menu-btn span:nth-child(3) {
+            top: 15px;
+        }
+
+        nav.mainnav {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            z-index: 9;
+        }
+
+        .mainmenu {
+            display: none;
+            flex-direction: column;
+            padding: 10px 0;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+
+        .mainmenu.open {
+            display: flex;
+        }
+
+        .mainmenu>li {
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .bg-video {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .bg-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            z-index: 5;
+        }
+
+        main.container {
+            padding: 15px;
+        }
+
+        section.search {
+            background-color: mistyrose;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+
+        .search-background {
+            background: linear-gradient(90deg, black, red);
+            border-radius: 10px;
+            padding: 2px;
+            margin-bottom: 15px;
+        }
+
+        .search-inner {
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            height: 36px;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .search-icon img {
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+        }
+
+        .weather {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .weather-icon img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .weather-text {
+            color: red;
+            font-weight: 600;
+        }
+
+        .line {
+            height: 1px;
+            background-color: rgb(180, 192, 204);
+            margin: 15px 0;
+        }
+
+        .img {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .img>div {
+            width: 70px;
+            text-align: center;
+        }
+
+        .img-img {
+            width: 50px !important;
+            height: 50px !important;
+            margin-bottom: 5px;
+        }
+
+        .img-msg {
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            padding: 15px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #7dba9d;
+            box-shadow: 2px 2px 4px #7dba9d;
+            font-size: 14px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .backgroundmoutain {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 40px;
+            background-color: rgb(204, 240, 146);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .image1 img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .text1 {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #333;
+        }
+
+        .text1 p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .text1 h1 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .m1 {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mountain p:nth-child(1),
+        .mountain p:nth-child(2) {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .mountain h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .mountain p:nth-child(3) {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .btn-submit {
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .m2 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            object-fit: cover;
+        }
+
+        .m3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer.footer {
+            background-color: #001f3f;
+            color: #fff;
+            padding: 20px 15px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        footer .foot-links {
+            margin-bottom: 10px;
+        }
+
+        footer .foot-links a {
+            color: #aaa;
+            margin: 0 8px;
+            font-size: 12px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="logo">
+                <a href="#"><img src="./KakaoTalk_20250717_170402791.png" alt="대구특별시 로고" /></a>
+            </div>
+            <div class="util"><a href="#">로그인</a></div>
+            <div class="menu-btn" id="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <nav class="mainnav">
+            <ul class="mainmenu" id="mainmenu">
+                <li><a href="#">민원·소통·참여</a></li>
+                <li><a href="#">정보공개</a></li>
+                <li><a href="#">행정·복지</a></li>
+                <li><a href="#">대구알림</a></li>
+                <li><a href="#">자치단체</a></li>
+                <li><a href="#">도움말</a></li>
+            </ul>
+        </nav>
+
+        <div class="bg-video">
+            <video src="./전익환/daeguvideo.mp4" autoplay loop muted playsinline></video>
+            <div class="overlay-text">함께하는 대구</div>
+        </div>
+
+        <main class="container">
+            <section class="search">
+                <div class="search-background">
+                    <div class="search-inner">
+                        <span>검색어를 입력하세요</span>
+                        <span class="search-icon"><img src="https://cdn-icons-png.flaticon.com/512/158/158740.png"
+                                alt="검색 아이콘" /></span>
+                    </div>
+                </div>
+
+                <div class="weather">
+                    <div class="weather-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/262/262109.png" alt="날씨" />
+                    </div>
+                    <div class="weather-text">오늘 대구의 날씨는 비, 21도 입니다.</div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="img">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1412/1412046.png" alt="아이콘1" class="img-img" />
+                        <div class="img-msg">청사안내</div>
+                    </div>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3000/3000409.png" alt="아이콘2" class="img-img" />
+                        <div class="img-msg">자유게시판</div>
+                    </div>
+                    <div>
+                        <img src="https://images.icon-icons.com/1603/PNG/512/news-newspaper-media-paper-press-article_108607.png"
+                            alt="아이콘3" class="img-img" />
+                        <div class="img-msg">대구소개</div>
+                    </div>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3059/3059446.png" alt="아이콘4" class="img-img" />
+                        <div class="img-msg">전화번호 안내</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="card-container">
+                <div class="card">
+                    <h3>전국민마음투자지원사업 안내</h3>
+                    <p>1. 사업기간: 2025년 연중(예산소진 시까지)<br>2. 지원대상: 우울, 불안 등...</p>
+                </div>
+                <div class="card">
+                    <h3>장마철 주의사항 안내</h3>
+                    <p>장마철 대비 사고 예방수칙<br>1. 침수 위험 지역 피하기 - 하천변이나 계곡 등...</p>
+                </div>
+                <div class="card">
+                    <h3>여름 온열질환 주의사항 안내</h3>
+                    <p>폭염 대비 온열질환 예방, 건강수칙<br>1. 물 자주 마시기 - 갈증을 느끼기 전에...</p>
+                </div>
+            </div>
+
+            <section class="backgroundmoutain">
+                <div class="image1">
+                    <img src="https://cdn.pixabay.com/photo/2022/05/12/16/04/trees-7191822_1280.png" alt="팔공산" />
+                    <div class="text1">
+                        <p>팔공산</p>
+                        <h1>대구의 명산</h1>
+                    </div>
+                </div>
+
+                <div class="m1 mountain">
+                    <p>팔공산의 아름다운 풍경</p>
+                    <p>대구를 대표하는 산</p>
+                    <h2>팔공산</h2>
+                    <p>팔공산은 대구 시민들의 사랑을 받는 명산입니다.</p>
+                    <button class="btn-submit">팔공산 바로가기</button>
+                </div>
+
+                <div class="m2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_Sby7g1vXIFe9UexxPwJSGlWMumI-AThiw&s"
+                        alt="풍경" />
+                </div>
+
+                <div class="m3">
+                    <div class="item">여행 정보 더 보기</div>
+                    <div class="item">먹거리/숙소/쇼핑</div>
+                    <div class="item">축제</div>
+                    <div class="item">관광 VR 사이버 투어</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="foot-links">
+                <a href="#">회사소개</a> | <a href="#">이용약관</a> | <a href="#">개인정보처리방침</a>
+            </div>
+            <div>© 2025 Daegu City. All Rights Reserved.</div>
+        </footer>
+    </div>
+
+    <script> // 햄버거
+        const menuBtn = document.getElementById('menu-btn');
+        const mainMenu = document.getElementById('mainmenu');
+
+        menuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('open');
+            menuBtn.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
