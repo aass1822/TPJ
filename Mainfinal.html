@@ -176,8 +176,9 @@
       word-break: keep-all;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 500px) {
       .overlay-text {
+        width: 500px;
         font-size: 1.2rem;
         top: 10px;
       }
@@ -571,12 +572,10 @@
 
       header .container {
         flex-direction: row;
-        /* ✅ 세로 쌓이지 않도록 유지 */
         align-items: center;
         justify-content: space-between;
         padding: 0 10px;
         flex-wrap: nowrap;
-        /* ✅ 줄바꿈 방지 */
       }
 
       .logo img {
@@ -612,9 +611,9 @@
         height: auto;
       }
 
-      /* 서브메뉴 감추기 */
       .submenu {
-        display: none !important;
+        position: absolute;
+        top: 40px;
       }
     }
   </style>
@@ -678,7 +677,7 @@
 
     <div class="bg-video">
       <div class="overlay-text">함께하는 대구</div>
-      <video src="daeguvideo.mp4" autoplay muted loop></video>
+      <video src="./전익환/daeguvideo.mp4" autoplay muted loop></video>
     </div>
 
     <main class="container">
