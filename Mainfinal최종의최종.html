@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Noto Sans KR', sans-serif;
+      font-size: 16px;
     }
 
     body {
@@ -131,7 +132,6 @@
     }
 
     .submenu li strong {
-      font-size: 16px;
       font-weight: bold;
       margin-bottom: 10px;
       display: block;
@@ -227,11 +227,15 @@
       word-break: keep-all;
     }
 
-    @media screen and (max-width: 1280px) {
+    @media screen and (max-width: 768px) {
       .bg-video {
         height: auto;
-        font-size: 1.2rem;
         top: 10px;
+      }
+      .overlay-text{
+        height: auto;
+        top: 10px;
+        font-size: 0.8rem;
       }
       
     }
@@ -308,7 +312,7 @@
     }
 
     .weather-text {
-      font-size: 35px;
+      font-size: 2rem;
     }
 
     .img {
@@ -341,7 +345,17 @@
       font-size: 12px;
     }
 
-    @media screen and (max-width: 1000px) {
+    .search-inner>input{
+        flex-direction: row;  
+        width: 99%;
+        height: 99%;
+        /* padding: 10px; */
+        gap: 10px;
+        border-color: white;
+        outline: none;
+      }
+
+    @media screen and (max-width: 768px) {
       .search {
         padding: 20px;
       }
@@ -358,6 +372,13 @@
         /* padding: 10px; */
         gap: 10px;
       }
+      .search-inner>input{
+        flex-direction: row;  
+        width: 99%;
+        height: 99%;
+        /* padding: 10px; */
+        gap: 10px;
+      }
 
       .line {
         display: none;
@@ -368,10 +389,6 @@
         align-items: center;
         gap: 10px;
         display: none;
-      }
-
-      .weather-text {
-      font-size: 20px;
       }
 
       .img {
@@ -534,20 +551,20 @@
 
     .mountain > p:nth-child(1),
     .mountain > p:nth-child(2) {
-      font-size: 20px;
+      font-size: 16px;
     }
 
     .mountain h2 {
-      font-size: 36px;
+      font-size: 2rem;
       margin-bottom: 28px;
     }
 
     .mountain > p:nth-child(3) {
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .row {
-      margin-top: 25px;
+      margin-top: 2rem;
     }
 
     .btn {
@@ -561,6 +578,7 @@
       color: white;
       border: none;
       border-radius: 70px;
+            font-size: 20px;
     }
 
     .m2 {
@@ -613,7 +631,7 @@
       border-radius: 0 0 15px 0;
     }
     
-    @media screen and (max-width:1350px) {
+    @media screen and (max-width:1650px) {
 
 
       section>.backgroundmoutain {
@@ -621,7 +639,6 @@
         padding-left: 190px;
         width: 100%;
         height: 1150px;
-        /* background-color: rgb(204, 240, 146); */
       }
 
       .image1 {
@@ -673,7 +690,6 @@
         top: 490px;
         left: 150px;
         width: 750px;
-        /* border: 1px solid; */
 
       }
 
@@ -716,6 +732,8 @@
         height: 200px;
         left: 140px;
       }
+
+      
 
       .m1 {
         left: 0px;
@@ -788,12 +806,12 @@
       }
 
       .text1 p {
-        font-size: 25px;
+        font-size: .8rem;
         position: relative;
       }
 
       .text1 h1 {
-        font-size: 40px;
+        font-size: 2rem;
         position: relative;
       }
 
@@ -848,14 +866,14 @@
 
         }
 
-        .row>.btn {
+        .row1>.btn1 {
             width: 210px;
             height: 70px;
             font-size: 2rem;
 
         }
 
-        .row:nth-child(1)>.btn-submit {
+        .row1:nth-child(1)>.btn-submit1 {
 
             background-color: rgb(223, 58, 58);
             color: white;
@@ -863,7 +881,7 @@
             border-radius: 70px 70px 0 70px;
         }
 
-        .row:nth-child(2)>.btn-submit {
+        .row1:nth-child(2)>.btn-submit1 {
 
             background-color: rgb(255, 255, 255);
             color: black;
@@ -888,7 +906,7 @@
         .child-btn {
             width: 146px;
             height: 142px;
-            border: 10px solid pink;
+            border: 10px solid mistyrose;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -909,48 +927,7 @@
 
             
         }
-
-       
-
-
-        @media screen and (max-width:600px) {
-
-            .q11 {
-                width: 100%;
-                margin: 0 auto;
-                padding: 10px;
-
-            }
-
-
-            .parent-btn {
-                /* border: 1px solid; */
-                display: flex;
-                flex-wrap: wrap;
-
-                justify-content: center;
-                gap: 10px;
-            }
-
-
-            .child-btn {
-                width: 146px;
-                height: 142px;
-                border: 10px solid pink;
-                border-radius: 10px;
-
-            }
-
-            .child-btn>a>img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .child-btn>.ch1 {
-                font-size: 14px;
-            }
-
-        }
+        
   </style>
 </head>
 <body>
@@ -971,6 +948,7 @@
           <li><a href="#">정보공개</a></li>
           <li><a href="#">대구소개</a></li>
           <li><a href="#">분야별정보</a></li>
+        </ul>  
           <ul class="submenu">
             <li>
               <strong>민원·소통·참여</strong>
@@ -1005,7 +983,6 @@
               <a href="#">도시주택·건설</a>
             </li>
           </ul>
-        </ul>
       </div>
     </nav>
 
@@ -1016,11 +993,12 @@
 
     <main class="container">
       <section>
+        <h6>ㅤ</h6>
         <div class="search">
           <div class="search-input">
             <div class="search-background">
               <div class="search-inner">
-                <div>검색어를 입력해 주세요</div>
+                <input style="border:none" placeholder="검색어를 입력해 주세요."></input>
                 <div class="search-icon">
                   <img src="https://cdn-icons-png.flaticon.com/512/158/158740.png" width="15" height="15" alt="검색 아이콘" />
                 </div>
@@ -1030,7 +1008,7 @@
 
           <div class="weather">
             <div class="weather-icon">
-              <img src="https://cdn-icons-png.flaticon.com/512/262/262109.png" width="60" height="60" />
+              <img alt="" src="https://cdn-icons-png.flaticon.com/512/262/262109.png" width="60" height="60" />
             </div>
             <div class="weather-text" style="color: red;">22.3℃</div>
             <div class="weather-text">하루 종일 비</div>
@@ -1039,11 +1017,11 @@
           <div class="line"></div>
 
           <div class="img">
-            <div><img class="img-img" src="https://cdn-icons-png.flaticon.com/512/1412/1412046.png" width="60" height="60"><div class="img-msg">청사안내</div></div>
-            <div><img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3000/3000409.png" width="60" height="60"><div class="img-msg">자유게시판</div></div>
-            <div><img class="img-img" src="https://images.icon-icons.com/1603/PNG/512/news-newspaper-media-paper-press-article_108607.png" width="60" height="60"><div class="img-msg">대구 소식</div></div>
-            <div><img class="img-img" src="https://cdn-icons-png.flaticon.com/512/3059/3059446.png" width="60" height="60"><div class="img-msg">전화번호 안내</div></div>
-            <div><img class="img-img" src="https://cdn-icons-png.flaticon.com/512/2675/2675008.png" width="60" height="60"><div class="img-msg">행정 조직도</div></div>
+            <div><img alt="" class="img-img" src="https://cdn-icons-png.flaticon.com/512/1412/1412046.png" width="60" height="60"><div class="img-msg">청사안내</div></div>
+            <div><img alt="" class="img-img" src="https://cdn-icons-png.flaticon.com/512/3000/3000409.png" width="60" height="60"><div class="img-msg">자유게시판</div></div>
+            <div><img alt="" class="img-img" src="https://images.icon-icons.com/1603/PNG/512/news-newspaper-media-paper-press-article_108607.png" width="60" height="60"><div class="img-msg">대구 소식</div></div>
+            <div><img alt="" class="img-img" src="https://cdn-icons-png.flaticon.com/512/3059/3059446.png" width="60" height="60"><div class="img-msg">전화번호 안내</div></div>
+            <div><img alt="" class="img-img" src="https://cdn-icons-png.flaticon.com/512/2675/2675008.png" width="60" height="60"><div class="img-msg">행정 조직도</div></div>
           </div>
         </div>
       </section>
@@ -1065,7 +1043,7 @@
       <section>
         <div class="backgroundmoutain">
           <div class="image1">
-            <img src="https://cdn.pixabay.com/photo/2022/05/12/16/04/trees-7191822_1280.png" />
+            <img alt="" src="https://cdn.pixabay.com/photo/2022/05/12/16/04/trees-7191822_1280.png" />
           </div>
           <div class="text1">
             <p>단풍 아래 전통이 숨 쉬는 도시, 대구</p>
@@ -1086,7 +1064,7 @@
             </div>
             <div class="m2">
               <a href="javascript:void(0)">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_Sby7g1vXIFe9UexxPwJSGlWMumI-AThiw&s"/>
+                <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_Sby7g1vXIFe9UexxPwJSGlWMumI-AThiw&s"/>
               </a>
             </div>
           </div>
@@ -1100,79 +1078,79 @@
         </div>
       </section>
     </main>
-    </main>
 
     <section>
+      <h6>ㅤ</h6>
 
             <div class="q11">
 
                 <div class="button11">
-                    <div class="row">
-                        <input class="btn btn-submit" type="submit" value="주요서비스" />
+                    <div class="row1">
+                        <input class="btn1 btn-submit1" type="submit" value="주요서비스" />
                     </div>
-                    <div class="row">
-                        <input class="btn btn-submit" type="submit" value="분야별 정보" />
+                    <div class="row1">
+                        <input class="btn1 btn-submit1" type="submit" value="분야별 정보" />
                     </div>
                 </div>
 
                 <div class="parent-btn">
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./상담사뚜봇.png" />
+                        <a href="#">
+                            <img alt="" src="./상담사뚜봇.png" />
                         </a>
                         <div class="ch1">상담사뚜봇</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./달구벌미소문자.png" />
+                        <a href="#">
+                            <img alt="" src="./달구벌미소문자.png" />
                         </a>
                         <div class="ch1">달구별미소문자</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./대구시정뉴스.png" />
+                        <a href="#">
+                            <img alt="" src="./대구시정뉴스.png" />
                         </a>
                         <div class="ch1">대구시정뉴스</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./대구특별시뉴스룸.png" />
+                        <a href="#">
+                            <img alt="" src="./대구특별시뉴스룸.png" />
                         </a>
                         <div class="ch1">대구특역시뉴스룸</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./두드리소.png" />
+                        <a href="#">
+                            <img alt="" src="./두드리소.png" />
                         </a>
                         <div class="ch1">두드리소</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./토크대구.png" />
+                        <a href="#">
+                            <img alt="" src="./토크대구.png" />
                         </a>
                         <div class="ch1">토크대구</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./통합예약.png" />
+                        <a href="#">
+                            <img alt="" src="./통합예약.png" />
                         </a>
                         <div class="ch1">통합예약</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./대구관광.png" />
+                        <a href="#">
+                            <img alt="" src="./대구관광.png" />
                         </a>
                         <div class="ch1">대구관광</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./대구역사문화대전.png" />
+                        <a href="#">
+                            <img alt="" src="./대구역사문화대전.png" />
                         </a>
                         <div class="ch1">대구역사문화대전</div>
                     </div>
                     <div class="child-btn">
-                        <a href="javcascript:void(0)">
-                            <img src="./금주의 퀴즈.png" />
+                        <a href="#">
+                            <img alt="" src="./금주의퀴즈.png" />
                         </a>
                         <div class="ch1">금주의 퀴즈</div>
                     </div>

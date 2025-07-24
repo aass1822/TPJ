@@ -354,6 +354,7 @@
         input[type="checkbox"] {
             display: none;
         }
+        .container>.search>.search-background
     </style>
 </head>
 
@@ -391,7 +392,7 @@
             <section class="search">
                 <div class="search-background">
                     <div class="search-inner">
-                        <span>검색어를 입력하세요</span>
+                        <input style="border:none" placeholder="검색어를 입력해 주세요."></input>
                         <span class="search-icon"><img src="https://cdn-icons-png.flaticon.com/512/158/158740.png"
                                 alt="검색 아이콘" /></span>
                     </div>
@@ -481,7 +482,7 @@
         </footer>
     </div>
 
-    <script> // 햄버거
+    <script> // 햄버거 추가함
         const menuBtn = document.getElementById('menu-btn');
         const mainMenu = document.getElementById('mainmenu');
 
