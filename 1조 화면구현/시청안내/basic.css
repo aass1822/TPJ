@@ -12,3 +12,16 @@
             width: 1920px;
             height: auto;
         }
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;              
+            background-color: #ffffff;  
+            padding: 30px;              
+            border-radius: 8px;       
+        }
+        h1{
+            font-size: 40px;
+        }
+        h2{
+            font-size: 22px;
+        }
