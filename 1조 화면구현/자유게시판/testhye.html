@@ -60,34 +60,34 @@
         <section>
             <div class="comment-tog">
                 <div class="c1">
-                    <p>메인1</p>
+                    <p>아침</p>
                     <p id="arrow"></p>
                 </div>
             </div>
             <ul class="comment">
-                <li>서브1</li>
-                <li>서브2</li>
-                <li>서브3</li>
+                <li>간장계란장</li>
+                <li>참기름</li>
+                <li>밥</li>
             </ul>
         </section>
         <section>
             <div class="comment-tog">
-                <p>메인2</p>
+                <p>아침2</p>
                 <p id="arrow"></p>
             </div>
             <ul class="comment">
-                <li>서브1</li>
-                <li>서브2</li>
+                <li>시금치스무디</li>
+                <li>로제떡볶이</li>
             </ul>
         </section>
         <section>
             <div class="comment-tog">
-                <p>메인3</p>
+                <p>아침3</p>
                 <p id="arrow"></p>
             </div>
             <ul class="comment">
-                <li>서브1</li>
-                <li>서브2</li>
+                <li>리조또</li>
+                <li>김치</li>
             </ul>
         </section>
     </div>
@@ -98,9 +98,22 @@
             tog.addEventListener("click", function () {
                 const cont = tog.nextElementSibling;
                 const cont2 = tog.firstElementChild;
+                
                 cont.classList.toggle("show");
-                tog.style.backgroundColor="lightgray";
-                cont2.setAttribute("style"," padding: 0;width:100%; height: 100%; color:blue;");
+                // console.log(cont.classList.value); // comment show / comment
+                // console.log(value1 =='comment'); // flase / true
+                const value1 = cont.classList.value;
+                if((value1 =='comment')==false){
+                    //comment show
+                    tog.style.backgroundColor="lightgray";
+                    cont2.setAttribute("style"," padding: 0;width:100%; height: 100%; color:blue;");
+                }
+                else{
+                    //comment 
+                    tog.style.backgroundColor="white";
+                    cont2.setAttribute("style"," padding: 0;width:100%; height: 100%; color:black;");
+                    
+                }
                 
             })
         );
@@ -108,6 +121,5 @@
     
     </script>
 </body>
-
 
 </html>
