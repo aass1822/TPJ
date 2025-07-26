@@ -1,197 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시청사 안내</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <link rel="stylesheet" href="./basic.css">
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: white;
+      color: black;
+      line-height: 1.6;
+    }
 
-    <style>
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
 
-        header.header {
-            width: 100%;
-            height: 100px;
-            border-bottom: 1px solid lightgray;
-            position: relative;
-            z-index: 2;
-        }
+    header {
+      border-bottom: 1px solid gray;
+      padding: 20px 0;
+    }
 
-        header .container {
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo img {
-            height: 60px;
-            object-fit: contain;
-        }
+    .logo img {
+      height: 60px;
+    }
 
-        .wrapper>.header>.info {
-            width: 200px;
-            height: 60px;
-            position: relative;
-            border: 1px solid;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-        }
-        .sub-info>a{
-            width: 400px;
-            height: 60px;
-            border: 1px solid;
-            position: absolute;
-            top: 170px;
-        }
+    .login {
+      font-size: 14px;
+    }
 
-        nav {
-            position: relative;
-        }
-    </style>
+    .page-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
 
+    .breadcrumb {
+      font-size: 14px;
+      color: dimgray;
+      margin-bottom: 20px;
+    }
+
+    .tab-menu {
+      margin: 30px 0;
+    }
+
+    .tab-menu button {
+      background: gainsboro;
+      border: 1px solid gray;
+      padding: 10px 20px;
+      margin-right: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      margin-bottom: 40px;
+      background: whitesmoke;
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      border-radius: 6px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid gray;
+      border-radius: 4px;
+    }
+
+    .search-bar button {
+      padding: 9px 18px;
+      background-color: royalblue;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .address {
+      margin-bottom: 5px;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: dimgray;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: whitesmoke;
+    }
+
+    table th,
+    table td {
+      border: 1px solid gray;
+      padding: 12px;
+      text-align: left;
+    }
+
+    table th {
+      background-color: lightgray;
+      width: 160px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <div class="logo">
+          <a href="#"><img src="../../1조 V1.0/Logo.png" alt="대구특별시 로고" /></a>
+        </div>
+        <div class="login"><a href="#">로그인</a></div>
+      </div>
+      <div class="page-title">시청사 안내</div>
+      <div class="breadcrumb">대구소개 &gt; 시청안내 &gt; 시청사안내 &gt; 동인청사</div>
+    </header>
 
-    <div class="wrapper">
-        <header class="header">
-            <div class="container">
-                <div class="logo">
-                    <a href="#"><img src="../../1조 V1.0/Logo.png" alt="대구특별시 로고" /></a>
-                </div>
-                <div class="util"><a href="#">로그인</a></div>
-            </div>
-            <div class="info">
-                <h1 class="info-main">시청사 안내</h1>
-            </div>
-            <div class="sub-info">
-                <a href="javascript:void(0)">대구소개</a>
-                <a href="javascript:void(0)">시청안내</a>
-                <a href="javascript:void(0)">시청사안내</a>
-                <a href="javascript:void(0)">동인청사</a>
-            </div>
-            <nav class="button">
-                <button>
-                    <a href="javascript:void(0)">동인청사</a>
-                </button>
-                <button>
-                    <a href="javascript:void(0)">산격청사</a>
-                </button>
-
-            </nav>
-        </header>
-
-        <main>
-            <div class="search">
-                <label>부서 검색</label>
-                <input type="text">
-                <a href="javascript:void(0)">검색</a>
-            </div>
-            <div class="box1">
-                <img class="icon" src="" alt="">
-                <h2>동인청사</h2>
-                <ul>
-                    <li>주소 : (41911) 대구특별시 중구 공평로 88 (동인동 1가)</li>
-                </ul>
-                <table border="1px" width="800px">
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="box2">
-                <img class="icon" src="" alt="">
-                <h2>ooo</h2>
-                <ul>
-                    <li>주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</li>
-                </ul>
-                <table border="1px" width="800px">
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="box3">
-                <img class="icon" src="" alt="">
-                <h2>의회</h2>
-                <ul>
-                    <li>주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</li>
-                </ul>
-                <table border="1px" width="800px">
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <th style="width: 200px; height: 50px;">d</th>
-                        <td>d</td>
-                    </tr>
-                </table>
-            </div>
-        </main>
-        <button class="page-button">
-            <a href="">1</a>
-        </button>
-
+    <div class="tab-menu">
+      <button>동인청사</button>
+      <button>산격청사</button>
     </div>
 
+    <div class="search-bar">
+      <label for="search">부서 검색</label>
+      <input type="text" id="search" placeholder="검색어를 입력하세요" />
+      <button>검색</button>
+    </div>
+
+    <section>
+      <h2>동인청사</h2>
+      <p class="address">주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</p>
+      <p class="last-updated">(2025. 7. 10. 현재)</p>
+      <table>
+        <tr><th>10층</th><td>대구광역시의회(의회사무처 / 예산결산특별위원회 / 의회운영위원회 / 고산헌위원)</td></tr>
+        <tr><th>9층</th><td>정책기획관 / 법무담당관 / 시민소통담당관 / 홍보브랜드담당관(브랜드팀) / 공보담당관 / 대구여성가족재단</td></tr>
+        <tr><th>8층</th><td>예산담당관 / 감사관 / 대변인 / 대구디자인진흥원 / 대구평생학습진흥원</td></tr>
+        <tr><th>7층</th><td>안전정책관 / 시민안전과 / 재난대응과 / 인력운영과 / 시민안전대책본부 / 환경에너지국</td></tr>
+        <tr><th>6층</th><td>일자리노동과 / 청년정책과 / 복지정책과 / 복지기획과 / 장애인복지과 / 여성가족과 / 공동주택과 / 공공건축과 / 공공시설관리과</td></tr>
+        <tr><th>5층</th><td>문화예술과 / 관광과 / 문화콘텐츠과 / 도시재생과 / 주거복지과 / 교통과 / 도시공간정보과 / 기후환경정책과</td></tr>
+        <tr><th>4층</th><td>자원순환과 / 녹색환경과 / 녹색에너지과 / 동물보호과 / 건강정책과 / 식품안전과 / 질병관리과</td></tr>
+        <tr><th>3층</th><td>사회혁신정책과 / 공공데이터과 / 빅데이터센터 / 시민정보센터 / 정책기획실 / 기획실</td></tr>
+        <tr><th>2층</th><td>시정홍보과 / 정보화정책과 / 대구광역시 정보통신과 / 교육정책지원관 / 여성가족과</td></tr>
+        <tr><th>1층</th><td>세정과 / 회계과 / 정보화담당관 / 시민봉사과</td></tr>
+        <tr><th>지하1층</th><td>총무과 / 기획실 / 자치행정과</td></tr>
+        <tr><th>지하2층</th><td>총무과 / 기획실 / 감사관</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>기타</h2>
+      <p class="address">주소 : (41914) 대구광역시 중구 국채보상로131길 17(동인동 2가)</p>
+      <table>
+        <tr><th>주차장관리</th><td>대구시설공단 / 대구도시공사</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>의회</h2>
+      <p class="address">주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</p>
+      <table>
+        <tr><th>4층</th><td>건설교통위원회 의원실</td></tr>
+        <tr><th>3층</th><td>기획행정위원회 의원실 / 복지환경위원회 의원실 / 문화복지위원회 의원실</td></tr>
+        <tr><th>2층</th><td>기획행정위원회 회의실 / 복지환경위원회 회의실 / 문화복지위원회 회의실 / 의회사무처 / 사무처장실</td></tr>
+        <tr><th>1층</th><td>의회사무처 민원상담실 / 시민상담실 / 도의회자료실 / 교육위원회 회의실 / 행정감사본부 / 의정홍보실</td></tr>
+      </table>
+    </section>
+  </div>
 </body>
 
 </html>
