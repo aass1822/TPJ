@@ -1,270 +1,542 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시청사 안내</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./basic동.css">
+  <style>
+    .tab-menu button.active { /* 클릭시 버튼색깔 변경 내가 지금 어디 페이지인지 확인할 때 필요해서 넣음 */
+      background-color: royalblue;
+      color: white;
+    }
 
-    <link rel="stylesheet" href="./basic산.css">
-    <style>
-        .container {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .full-header {
+      width: 100%;
+      /* 헤더만 1920고정 시켰음 */
+      background-color: white;
+      border-bottom: 1px solid gray;
+    }
 
-        header.header {
-            width: 100%;
-            height: 100px;
-            border-bottom: 1px solid lightgray;
-            position: relative;
-            z-index: 2;
-        }
+    .header-inner {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        header .container {
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .logo img {
+      height: 60px;
+    }
 
-        .logo img {
-            height: 60px;
-            object-fit: contain;
-        }
+    .login {
+      font-size: 14px;
+    }
 
-        .util a {
-            font-size: 16px;
-            color: #333;
-        }
-        h1{
-            text-align: center;  
-            width: 280px;
-            height: 50px; 
-            border: 1px solid;
-            background-color: rgb(176, 237, 115);
+    .wrapper {
+      /* 본문부분 1280고정시키고 콘텐츠 980px로 맞추기 위해 */
+      width: 1280px;
+      margin: 0 auto;
+      display: flex;
+    }
 
-        }
-        .search{
-            position: relative;
-            left: 600px;
-            bottom: -100px;
-            width: 100%;
-            height: 100px;
-        }
+    .empty-space {
+      width: 300px;
+    }
 
-    </style>
+    .container {
+      width: 980px;
+      padding: 30px 20px;
+      background-color: white;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb {
+      font-size: 14px;
+      color: dimgray;
+      margin-bottom: 20px;
+    }
+
+    .tab-menu {
+      margin: 30px 0;
+    }
+
+    .tab-menu button {
+      background: gainsboro;
+      border: 1px solid gray;
+      padding: 10px 20px;
+      margin-right: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      margin-bottom: 40px;
+      background: whitesmoke;
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      border-radius: 6px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid gray;
+      border-radius: 4px;
+    }
+
+    .search-bar button {
+      padding: 9px 18px;
+      background-color: royalblue;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .address {
+      margin-bottom: 5px;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: dimgray;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: whitesmoke;
+    }
+
+    table th {
+      border: 1px solid gray;
+      padding: 12px;
+      text-align: center;
+    }
+    table td {
+      border: 1px solid gray;
+      padding: 12px;
+      text-align: left;
+      width: ;
+    }
+
+    table th {
+      background-color: lightgray;
+      width: 160px;
+      font-weight: bold;
+    }
+
+    footer.footer {
+      background-color: #001f3f;
+      color: white;
+      padding: 40px 0;
+      width: 100%;
+    }
+
+    .footer-inner {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .foot-links a {
+      color: #aaa;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .foot-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      font-size: 14px;
+      color: #777777;
+    }
+
+    /* 맨 위로 버튼(안해도되지만 괜찮을거같아서 친구 도움 받아서 만듬) */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: royalblue;
+      color: white;
+      cursor: pointer;
+      padding: 14px 18px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    #topBtn:hover {
+      background-color: navy;
+    }
+
+    @media (max-width: 1280px) {
+      .wrapper {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .empty-space {
+        display: none;
+      }
+
+      .container {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .tab-menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-bar input,
+      .search-bar button {
+        width: 100%;
+      }
+
+      .breadcrumb {
+        font-size: 12px;
+      }
+
+      .page-title {
+        font-size: 22px;
+      }
+
+      table th,
+      table td {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .footer-inner {
+        padding: 0 20px;
+        gap: 16px;
+      }
+
+      .foot-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .foot-links a {
+        font-size: 13px;
+      }
+
+      .copyright {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      #topBtn {
+        bottom: 20px;
+        right: 20px;
+        font-size: 16px;
+        padding: 12px 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="wrapper">
-        <header class="header">
-            <div class="container">
-                <div class="logo">
-                    <a href="#"><img src="../../1조 V1.0/Logo.png" alt="대구특별시 로고" /></a>
-                </div>
-                <div class="util"><a href="#">로그인</a></div>
-            </div>
-            <h1>시청사안내</h1>
-            <a href="버튼">대구소개</a>
-            <a href="버튼">시청안내</a>
-            <a href="버튼">시청사안내</a>
-            <a href="버튼">산격청사</a>
-        </header>
-        <nav class="button">
-            <a href="javascript:void(0)">동인청사</a>
-            <a href="javascript:void(0)">산격청사</a>
-        </nav>
-        <div class="search">
-            <h2>부서 검색</h2>
-            <input type="text">
-            <a href="">검색</a>
-        </div>
-        <div class="box1">
-            <h2>산격청사</h2>
-            <ul>
-                <li>주소 : (41542) 대구광역시 북구 연암로 40(산격동)</li>
-            </ul>
-        <div class="box2">
-            <ul>
-                <li>(2025.7.10 현재)</li>
-            </ul>
-            <table class="" border="1px" width="800px">
-                <tr>
-                    <th style="width: 10%; height: 50px;"rowspan="6">101동</th>
-                    <th style="width: 10%; height: 50px;">6층</th>
-                    <td>청사관리2팀</td>
-                </tr>
-                <tr>
-                    <!-- <th style="width: 10%; height: 50px;">====</th> -->
-                    <th style="width: 10%; height: 50px;">5층</th>
-                    <td>경제정책자문관 / 금융자문관 / 금융협력관 / 미래혁신정책관실 / 광역협력담당관 / 법무담당관 / 예산작업장 / 의료산업과 / 에너지산업과 / ABB산업과</td>
-                </tr>
-                <tr>
-                    <!-- <th style="width: 10%; height: 50px;">====</th> -->
-                    <th style="width: 10%; height: 50px;">4층</th>
-                    <td>기획조정실장 / 정책기획관 / 정책기획관실 / 예산담당관 / 세정담당관 / 평가통계담당관 / 창업벤처혁신과 / 산단진흥과 / 사진영상실 / 건강관리실</td>
-                </tr>
-                <tr>
-                    <!-- <th style="width: 10%; height: 50px;">====</th> -->
-                    <th style="width: 10%; height: 50px;">3층</th>
-                    <td>시장실 / 경제부시장실 / 국제관계대사 / 맑은물하이웨이추진단장 / 미래혁신성장실장 / 행정국장 / 경제국장 / 대구경북행정통합추진단장 / 미래혁신정책관 / 법제자문관 / 제1대회의실</td>
-                </tr>
-                <tr>
-                    <!-- <th style="width: 10%; height: 50px;">====</th> -->
-                    <th style="width: 10%; height: 50px;">2층</th>
-                    <td>원스톱기업투자센터장 / 교통국장 / 경제정책관 / 신공항건설추진단(이전보상과, 공항건설지원과) / 기계로봇과 / 섬유패션과 / 농산유통과 / 도로과 / 제5회의실 / 정보통신2센터 / 마음의쉼터(심리상담실) / 민생회복 소비쿠폰(T/F)</td>
-                </tr>
-                <tr>
-                    <!-- <th style="width: 10%; height: 50px;">====</th> -->
-                    <th style="width: 10%; height: 50px;">1층</th>
-                    <td>교통정책과 / 버스운영과 / 기후환경정책과(기후환경기획팀, 탄소중립팀, 생활환경팀, 자연생태팀) / 행복민원실분소 / 문서실 / 영상회의실 / 제1회의실 / 제2회의실 / 제3회의실 / 제4회의실 / 대강당 / 기사송고실 / 청원경찰대상황실 / 휴게실 / IM뱅크</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                 <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                <tr>
-                    <th style="width: 10%; height: 50px;">====</th>
-                    <th style="width: 10%; height: 50px;">d</th>
-                    <td>d</td>
-                </tr>
-                
+  <div class="full-header">
+    <div class="header-inner">
+      <div class="logo">
+        <a href="../../1조 V1.0/Main.html"><img src="../../1조 V1.0/Logo.png" alt="대구특별시 로고" /></a>
+      </div>
+      <div class="login"><a href="../../1조 V1.0/Login.html">로그인</a></div>
+    </div>
+  </div>
 
-            </table>
-        </div>
+  <!-- 우측으로 980정렬로 맞춰놨기때문에 좌측 300은 혜연님이 만드신 사이드바 추가하면될듯 -->
+  <div class="wrapper">
+    <!-- 사이드바 들어갈 곳 -->
+    <div class="empty-space">
+      <!-- 사이드바 코드 넣을부분 넣고 되는지 안되는지 확인해야됌 -->
+    </div>
+    <div class="container">
+      <div class="page-title">시청사 안내</div>
+      <div class="breadcrumb">대구소개 &gt; 시청안내 &gt; 시청사안내 &gt; 동인청사</div>
+
+      <div class="tab-menu">
+        <button onclick="location.href='동인청사.html'">동인청사</button>
+        <button class="active" onclick="location.href='산격청사.html'">산격청사</button>
+      </div>
+
+      <div class="search-bar">
+        <label for="search">부서 검색</label>
+        <input type="text" id="search" placeholder="검색어를 입력하세요" />
+        <button>검색</button>
+      </div>
+
+      <section>
+        <h2>산격청사</h2>
+        <p class="address">주소 : (41542) 대구광역시 북구 연암로 40(산격동)</p>
+        <img src="guide_map.jpg" alt="산격청사 지도">
+        <p class="last-updated">(2025. 7. 10. 현재)</p>
+        <table>
+          <tr>
+            <th rowspan="6">101동</th>
+            <th>6층</th>
+            <td>청사관리2팀</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>5층</th>
+            <td>경제정책자문관 / 금융자문관 / 금융협력관 / 미래혁신정책관실 / 광역협력담당관 / 법무담당관 / 예산작업장 / 의료산업과 / 에너지산업과 / ABB산업과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>4층</th>
+            <td>기획조정실장 / 정책기획관 / 정책기획관실 / 예산담당관 / 세정담당관 / 평가통계담당관 / 창업벤처혁신과 / 산단진흥과 / 사진영상실 / 건강관리실</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>3층</th>
+            <td>시장실 / 경제부시장실 / 국제관계대사 / 맑은물하이웨이추진단장 / 미래혁신성장실장 / 행정국장 / 경제국장 / 대구경북행정통합추진단장 / 미래혁신정책관 / 법제자문관 / 제1대회의실</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>2층</th>
+            <td>원스톱기업투자센터장 / 교통국장 / 경제정책관 / 신공항건설추진단(이전보상과, 공항건설지원과) / 기계로봇과 / 섬유패션과 / 농산유통과 / 도로과 / 제5회의실 / 정보통신2센터 / 마음의쉼터(심리상담실) / 민생회복 소비쿠폰(T/F)</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>교통정책과 / 버스운영과 / 기후환경정책과(기후환경기획팀, 탄소중립팀, 생활환경팀, 자연생태팀) / 행복민원실분소 / 문서실 / 영상회의실 / 제1회의실 / 제2회의실 / 제3회의실 / 제4회의실 / 대강당 / 기사송고실 / 청원경찰대상황실 / 휴게실 / IM뱅크</td>
+          </tr>
+          <tr>
+            <th colspan="2">102동</th>
+            <!-- <th>1</th> -->
+            <td>대구경북행정통합추진단 / 대구스마트쉼센터 / 농협은행출장소</td>
+          </tr>
+          <tr>
+            <th rowspan="3">103동</th>
+            <th>4층</th>
+            <td>자원순환과 / 공원조성과 / 민원상담실 / 안전정책관(재난안전기동팀)</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>3층</th>
+            <td>기후환경정책과(대기관리팀, 대기개선팀) / 물환경과 / 도시건설본부 조경과 / 오존상황실 / 하수전산실</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1~2층</th>
+            <td>도시건설본부</td>
+          </tr>
+          <tr>
+            <th rowspan="2">104동</th>
+            <th>2층</th>
+            <td>택시물류과 / 교통정책과(주차계획팀, 주차관리팀)</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>민주평화통일자문회의실</td>
+          </tr>
+          <tr>
+            <th rowspan="3">105동</th>
+            <th>3층</th>
+            <td>안동댐상수원개발과 / 서대구역세권개발과 / 신천개발과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>2층</th>
+            <td>민생경제과 / 금호강개발과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>도시디자인과 / 물가종합상황실</td>
+          </tr>
+          <tr>
+            <th colspan="2">106동</th>
+            <!-- <th>1</th> -->
+            <td>철도시설과</td>
+          </tr>
+          <tr>
+            <th colspan="2">110동</th>
+            <!-- <th>1</th> -->
+            <td>지능정보화담당관 / 제6회의실</td>
+          </tr>
+          <tr>
+            <th colspan="2">110동 앞</th>
+            <!-- <th>1</th> -->
+            <td>발간실</td>
+          </tr>
+          <tr>
+            <th rowspan="5">111동</th>
+            <th>5층</th>
+            <td>재정전략추진단(T/F) / 고용노동정책과 / 농산유통과(식품수출팀)</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>4층</th>
+            <td>기업지원과 / 투자유치과 / 120달구벌콜센터 / 통신실</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>3층</th>
+            <td>신공항건설단장 / 환경수자원국장 / 신공항정책국장 / 신공항건설국장 / 공항정책관 / 공항건설총괄과 / 공항건설설계과 / 행정과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>2층</th>
+            <td>총무과 / 인사혁신과 / 국제통상과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>회계과 / 공항도시과 / 맘케어오피스 / 제7회의실 / 북카페</td>
+          </tr>
+          <tr>
+            <th colspan="2">102동</th>
+            <!-- <th>1</th> -->
+            <td>미래모빌리티과 / 도시공간개발과</td>
+          </tr>
+          <tr>
+            <th rowspan="3">113동</th>
+            <th>3층</th>
+            <td>대학정책과 / 대학인재과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>2층</th>
+            <td>군사시설이전특보 / 군사시설이전정책관 / 대학정책국장 / 국회협력관</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>신청사건립과 / 군부대이전정책과 / 미군부대이전과</td>
+          </tr>
+          <tr>
+            <th colspan="2">별관2</th>
+            <!-- <th>1</th> -->
+            <td>자치경찰위원회 / 감사위원회 / 복지·인권옴부즈만실</td>
+          </tr>
+          <tr>
+            <th rowspan="2">별관3</th>
+            <th>2층</th>
+            <td>스마트워크센터 / 전세피해지원센터</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>작은도서관</td>
+          </tr>
+          <tr>
+            <th rowspan="3">별관5</th>
+            <th>3층</th>
+            <td>건설산업과 / 면접시험장 / 소통민원과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>2층</th>
+            <td>도시주택국장 / 도시계획과 / 도시정비과</td>
+          </tr>
+          <tr>
+            <!-- <th>1</th> -->
+            <th>1층</th>
+            <td>건축과 / 주택과 / 토지정보과 / 민원대기실</td>
+          </tr>
+
+        </table>
+      </section>
 
 
     </div>
 
+  </div>
+  <footer class="footer">
+    <div class="container2">
+      <div class="foot-links">
+        <a href="#">개인정보처리방침</a>
+        <a href="#">이메일무단수집거부</a>
+        <a href="#">저작권정책</a>
+        <a href="#">오시는길</a>
+      </div>
+      <div class="copyright">
+        ⓒ 2025 Daegu Special City. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- 책보며 해서 로직 확인필요함 -->
+  <button onclick="scrollToTop()" id="topBtn" title="맨 위로">↑</button>
+
+  <script>
+    window.onscroll = function () {
+      const btn = document.getElementById("topBtn");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        // console.log(btn);
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
 </body>
 
 </html>
