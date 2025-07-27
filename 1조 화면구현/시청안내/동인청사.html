@@ -6,21 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>시청사 안내</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./basic.css">
+  <link rel="stylesheet" href="./basic동.css">
   <style>
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 20px;
+    .tab-menu button.active { /* 클릭시 버튼색깔 변경 내가 지금 어디 페이지인지 확인할 때 필요해서 넣음 */
+      background-color: royalblue;
+      color: white;
     }
 
-    header {
+    .full-header {
+      width: 100%;
+      /* 헤더만 1920고정 시켰음 */
+      background-color: white;
       border-bottom: 1px solid gray;
-      padding: 20px 0;
     }
 
-    .header-top {
+    .header-inner {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -34,10 +37,26 @@
       font-size: 14px;
     }
 
+    .wrapper {
+      /* 본문부분 1280고정시키고 콘텐츠 980px로 맞추기 위해 */
+      width: 1280px;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .empty-space {
+      width: 300px;
+    }
+
+    .container {
+      width: 980px;
+      padding: 30px 20px;
+      background-color: white;
+    }
+
     .page-title {
       font-size: 28px;
       font-weight: bold;
-      margin-top: 20px;
       margin-bottom: 10px;
     }
 
@@ -125,72 +144,308 @@
       width: 160px;
       font-weight: bold;
     }
+
+    footer.footer {
+      background-color: #001f3f;
+      color: white;
+      padding: 40px 0;
+      width: 100%;
+    }
+
+    .footer-inner {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .foot-links a {
+      color: #aaa;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .foot-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      font-size: 14px;
+      color: #777777;
+    }
+
+    /* 맨 위로 버튼(안해도되지만 괜찮을거같아서 친구 도움 받아서 만듬) */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: royalblue;
+      color: white;
+      cursor: pointer;
+      padding: 14px 18px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    #topBtn:hover {
+      background-color: navy;
+    }
+
+    @media (max-width: 1280px) {
+      .wrapper {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .empty-space {
+        display: none;
+      }
+
+      .container {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .tab-menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-bar input,
+      .search-bar button {
+        width: 100%;
+      }
+
+      .breadcrumb {
+        font-size: 12px;
+      }
+
+      .page-title {
+        font-size: 22px;
+      }
+
+      table th,
+      table td {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .footer-inner {
+        padding: 0 20px;
+        gap: 16px;
+      }
+
+      .foot-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .foot-links a {
+        font-size: 13px;
+      }
+
+      .copyright {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      #topBtn {
+        bottom: 20px;
+        right: 20px;
+        font-size: 16px;
+        padding: 12px 14px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <div class="header-top">
-        <div class="logo">
-          <a href="#"><img src="../../1조 V1.0/Logo.png" alt="대구특별시 로고" /></a>
-        </div>
-        <div class="login"><a href="#">로그인</a></div>
+
+  <div class="full-header">
+    <div class="header-inner">
+      <div class="logo">
+        <a href="../../1조 V1.0/Main.html"><img src="../../1조 V1.0/Logo.png" alt="대구특별시 로고" /></a>
       </div>
+      <div class="login"><a href="../../1조 V1.0/Login.html">로그인</a></div>
+    </div>
+  </div>
+
+  <!-- 우측으로 980정렬로 맞춰놨기때문에 좌측 300은 혜연님이 만드신 사이드바 추가하면될듯 -->
+  <div class="wrapper">
+    <!-- 사이드바 들어갈 곳 -->
+    <div class="empty-space">
+      <!-- 사이드바 코드 넣을부분 넣고 되는지 안되는지 확인해야됌 -->
+    </div>
+    <div class="container">
       <div class="page-title">시청사 안내</div>
       <div class="breadcrumb">대구소개 &gt; 시청안내 &gt; 시청사안내 &gt; 동인청사</div>
-    </header>
 
-    <div class="tab-menu">
-      <button>동인청사</button>
-      <button>산격청사</button>
+      <div class="tab-menu">
+        <button class="active" onclick="location.href='동인청사.html'">동인청사</button>
+        <button onclick="location.href='산격청사.html'">산격청사</button>
+      </div>
+
+      <div class="search-bar">
+        <label for="search">부서 검색</label>
+        <input type="text" id="search" placeholder="검색어를 입력하세요" />
+        <button>검색</button>
+      </div>
+
+      <section>
+        <h2>동인청사</h2>
+        <p class="address">주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</p>
+        <p class="last-updated">(2025. 7. 10. 현재)</p>
+        <table>
+          <tr>
+            <th>10층</th>
+            <td>대구광역시의회(의회사무처 / 예산결산특별위원회 / 의회운영위원회 / 고산헌위원)</td>
+          </tr>
+          <tr>
+            <th>9층</th>
+            <td>정책기획관 / 법무담당관 / 시민소통담당관 / 홍보브랜드담당관(브랜드팀) / 공보담당관 / 대구여성가족재단</td>
+          </tr>
+          <tr>
+            <th>8층</th>
+            <td>예산담당관 / 감사관 / 대변인 / 대구디자인진흥원 / 대구평생학습진흥원</td>
+          </tr>
+          <tr>
+            <th>7층</th>
+            <td>안전정책관 / 시민안전과 / 재난대응과 / 인력운영과 / 시민안전대책본부 / 환경에너지국</td>
+          </tr>
+          <tr>
+            <th>6층</th>
+            <td>일자리노동과 / 청년정책과 / 복지정책과 / 복지기획과 / 장애인복지과 / 여성가족과 / 공동주택과 / 공공건축과 / 공공시설관리과</td>
+          </tr>
+          <tr>
+            <th>5층</th>
+            <td>문화예술과 / 관광과 / 문화콘텐츠과 / 도시재생과 / 주거복지과 / 교통과 / 도시공간정보과 / 기후환경정책과</td>
+          </tr>
+          <tr>
+            <th>4층</th>
+            <td>자원순환과 / 녹색환경과 / 녹색에너지과 / 동물보호과 / 건강정책과 / 식품안전과 / 질병관리과</td>
+          </tr>
+          <tr>
+            <th>3층</th>
+            <td>사회혁신정책과 / 공공데이터과 / 빅데이터센터 / 시민정보센터 / 정책기획실 / 기획실</td>
+          </tr>
+          <tr>
+            <th>2층</th>
+            <td>시정홍보과 / 정보화정책과 / 대구광역시 정보통신과 / 교육정책지원관 / 여성가족과</td>
+          </tr>
+          <tr>
+            <th>1층</th>
+            <td>세정과 / 회계과 / 정보화담당관 / 시민봉사과</td>
+          </tr>
+          <tr>
+            <th>지하1층</th>
+            <td>총무과 / 기획실 / 자치행정과</td>
+          </tr>
+          <tr>
+            <th>지하2층</th>
+            <td>총무과 / 기획실 / 감사관</td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>기타</h2>
+        <p class="address">주소 : (41914) 대구광역시 중구 국채보상로131길 17(동인동 2가)</p>
+        <table>
+          <tr>
+            <th>주차장관리</th>
+            <td>대구시설공단 / 대구도시공사</td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>의회</h2>
+        <p class="address">주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</p>
+        <table>
+          <tr>
+            <th>4층</th>
+            <td>건설교통위원회 의원실</td>
+          </tr>
+          <tr>
+            <th>3층</th>
+            <td>기획행정위원회 의원실 / 복지환경위원회 의원실 / 문화복지위원회 의원실</td>
+          </tr>
+          <tr>
+            <th>2층</th>
+            <td>기획행정위원회 회의실 / 복지환경위원회 회의실 / 문화복지위원회 회의실 / 의회사무처 / 사무처장실</td>
+          </tr>
+          <tr>
+            <th>1층</th>
+            <td>의회사무처 민원상담실 / 시민상담실 / 도의회자료실 / 교육위원회 회의실 / 행정감사본부 / 의정홍보실</td>
+          </tr>
+        </table>
+      </section>
+
     </div>
 
-    <div class="search-bar">
-      <label for="search">부서 검색</label>
-      <input type="text" id="search" placeholder="검색어를 입력하세요" />
-      <button>검색</button>
-    </div>
-
-    <section>
-      <h2>동인청사</h2>
-      <p class="address">주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</p>
-      <p class="last-updated">(2025. 7. 10. 현재)</p>
-      <table>
-        <tr><th>10층</th><td>대구광역시의회(의회사무처 / 예산결산특별위원회 / 의회운영위원회 / 고산헌위원)</td></tr>
-        <tr><th>9층</th><td>정책기획관 / 법무담당관 / 시민소통담당관 / 홍보브랜드담당관(브랜드팀) / 공보담당관 / 대구여성가족재단</td></tr>
-        <tr><th>8층</th><td>예산담당관 / 감사관 / 대변인 / 대구디자인진흥원 / 대구평생학습진흥원</td></tr>
-        <tr><th>7층</th><td>안전정책관 / 시민안전과 / 재난대응과 / 인력운영과 / 시민안전대책본부 / 환경에너지국</td></tr>
-        <tr><th>6층</th><td>일자리노동과 / 청년정책과 / 복지정책과 / 복지기획과 / 장애인복지과 / 여성가족과 / 공동주택과 / 공공건축과 / 공공시설관리과</td></tr>
-        <tr><th>5층</th><td>문화예술과 / 관광과 / 문화콘텐츠과 / 도시재생과 / 주거복지과 / 교통과 / 도시공간정보과 / 기후환경정책과</td></tr>
-        <tr><th>4층</th><td>자원순환과 / 녹색환경과 / 녹색에너지과 / 동물보호과 / 건강정책과 / 식품안전과 / 질병관리과</td></tr>
-        <tr><th>3층</th><td>사회혁신정책과 / 공공데이터과 / 빅데이터센터 / 시민정보센터 / 정책기획실 / 기획실</td></tr>
-        <tr><th>2층</th><td>시정홍보과 / 정보화정책과 / 대구광역시 정보통신과 / 교육정책지원관 / 여성가족과</td></tr>
-        <tr><th>1층</th><td>세정과 / 회계과 / 정보화담당관 / 시민봉사과</td></tr>
-        <tr><th>지하1층</th><td>총무과 / 기획실 / 자치행정과</td></tr>
-        <tr><th>지하2층</th><td>총무과 / 기획실 / 감사관</td></tr>
-      </table>
-    </section>
-
-    <section>
-      <h2>기타</h2>
-      <p class="address">주소 : (41914) 대구광역시 중구 국채보상로131길 17(동인동 2가)</p>
-      <table>
-        <tr><th>주차장관리</th><td>대구시설공단 / 대구도시공사</td></tr>
-      </table>
-    </section>
-
-    <section>
-      <h2>의회</h2>
-      <p class="address">주소 : (41911) 대구광역시 중구 공평로 88(동인동 1가)</p>
-      <table>
-        <tr><th>4층</th><td>건설교통위원회 의원실</td></tr>
-        <tr><th>3층</th><td>기획행정위원회 의원실 / 복지환경위원회 의원실 / 문화복지위원회 의원실</td></tr>
-        <tr><th>2층</th><td>기획행정위원회 회의실 / 복지환경위원회 회의실 / 문화복지위원회 회의실 / 의회사무처 / 사무처장실</td></tr>
-        <tr><th>1층</th><td>의회사무처 민원상담실 / 시민상담실 / 도의회자료실 / 교육위원회 회의실 / 행정감사본부 / 의정홍보실</td></tr>
-      </table>
-    </section>
   </div>
+  <footer class="footer">
+    <div class="container2">
+      <div class="foot-links">
+        <a href="#">개인정보처리방침</a>
+        <a href="#">이메일무단수집거부</a>
+        <a href="#">저작권정책</a>
+        <a href="#">오시는길</a>
+      </div>
+      <div class="copyright">
+        ⓒ 2025 Daegu Special City. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- 책보며 해서 로직 확인필요함 -->
+  <button onclick="scrollToTop()" id="topBtn" title="맨 위로">↑</button>
+
+  <script>
+    window.onscroll = function () {
+      const btn = document.getElementById("topBtn");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        // console.log(btn);
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
 </body>
 
 </html>
