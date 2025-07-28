@@ -8,7 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./basic동.css">
   <style>
-    .tab-menu button.active { /* 클릭시 버튼색깔 변경 내가 지금 어디 페이지인지 확인할 때 필요해서 넣음 */
+    .tab-menu button.active {
+      /* 클릭시 버튼색깔 변경 내가 지금 어디 페이지인지 확인할 때 필요해서 넣음 */
       background-color: royalblue;
       color: white;
     }
@@ -198,7 +199,7 @@
       padding: 14px 18px;
       border-radius: 50%;
       font-size: 18px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       transition: background-color 0.3s ease;
     }
 
@@ -283,6 +284,80 @@
         font-size: 16px;
         padding: 12px 14px;
       }
+    }
+
+    .bottom-container>p {
+      border-top: 1px solid gray;
+      padding: 20px 0;
+    }
+
+    .bottom.site-bottom {
+
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px;
+      margin-top: 50px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .bottom-footer .bottom-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .site-bottom .feedback {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .site-bottom .choice {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .site-bottom .choices label {
+      margin-right: 10px;
+    }
+
+    .site-bottom .feedback button {
+      padding: 6px 14px;
+      background-color: #1f4fa4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .site-bottom .bottom-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .site-bottom .bottom-info {
+      font-weight: bold;
+    }
+
+    .site-bottom .bottom-buttons {
+      display: flex;
+    }
+
+    .site-bottom .bottom-buttons button {
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-left: 8px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
     }
   </style>
 </head>
@@ -409,9 +484,35 @@
         </table>
       </section>
 
+      <bottom class="site-bottom">
+        <div class="bottom-container">
+          <p><strong>현재페이지의 내용과 사용편의성에 만족하십니까?</strong></p>
+
+          <form class="feedback">
+            <div class="choice">
+              <label><input type="radio" name="feedback" /> 매우 만족</label>
+              <label><input type="radio" name="feedback" /> 만족</label>
+              <label><input type="radio" name="feedback" /> 보통</label>
+              <label><input type="radio" name="feedback" /> 불만족</label>
+              <label><input type="radio" name="feedback" /> 매우 불만족</label>
+            </div>
+            <button type="submit">평가하기</button>
+          </form>
+
+          <div class="bottom-bottom">
+            <div class="bottom-info">전화번호 │ 053-120</div>
+            <div class="bottom-buttons">
+              <button>행정조직도</button>
+              <button>찾아오시는길</button>
+            </div>
+          </div>
+        </div>
+      </bottom>
+
     </div>
 
   </div>
+
   <footer class="footer">
     <div class="container2">
       <div class="foot-links">
