@@ -173,13 +173,19 @@
             margin-bottom: 30px;
             padding: 20px;
             width: 100%;
-            height: 200px;
             background-color: #eaeaea;
             display: flex;
+
+            height: 280px;
+            border: 1px solid gray;
+            border-radius:10px ;
+            box-shadow: 5px 5px gray;
+
         }
 
         .t4icon {
-            width: 15%;
+            width: 114px;
+
             height: 114px;
             margin: 20px;
             padding: 10px;
@@ -189,7 +195,8 @@
 
         .t4text {
             width: 85%;
-            font-size: 10px;
+
+            font-size: 12px;
         }
 
         .t4text>p {
@@ -723,6 +730,25 @@
                     //comment show
                     tog.style.backgroundColor = "#4174b9";
                     cont2.setAttribute("style", " padding: 0;width:100%; height: 100%; color:white;");
+
+                    if (cont.classList.contains("show")) {
+                        const cont3 = document.querySelectorAll(".comment")  
+                        cont3.forEach(c => {
+                            if (c !== cont) {       
+                                c.classList.remove("show"); 
+
+                                const othertog = c.previousElementSibling;  
+                                if (othertog) {
+                                    othertog.style.backgroundColor = "white";
+                                    if (othertog.firstElementChild) {
+                                        othertog.firstElementChild.setAttribute("style","padding: 0; width:100%; height: 100%; color:black;"
+                                        );
+                                    }
+                                }
+                            }
+                        });
+                    }
+
                 }
                 else {
                     //comment 
