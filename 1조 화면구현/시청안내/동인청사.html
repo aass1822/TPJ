@@ -14,6 +14,82 @@
       color: white;
     }
 
+    .subtitle {
+      position: relative;
+      width: 240px;
+      height: 50px;
+      border-radius: 5px;
+      background-color: #000080;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-bottom: 12px;
+
+    }
+
+    .submain {
+      position: relative;
+      width: 240px;
+      height: 500px;
+    }
+
+    .comment-tog {
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 10px;
+      width: 100%;
+      height: 43px;
+
+    }
+
+    .tog1 {
+      padding-right: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+
+    }
+
+
+    .comment-tog>p {
+      margin: 0;
+    }
+
+    .comment-tog>p>a {
+      color: black;
+      text-decoration-line: none;
+    }
+
+    #arrow {
+      position: relative;
+      top: 3px;
+      right: 5px;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid black;
+      border-left: 2px solid black;
+      transform: rotate(-135deg);
+    }
+
+    .comment {
+      display: none;
+      list-style: '-';
+      padding-left: 20px;
+
+      /*  */
+      /*  */
+      margin: 10px;
+
+
+    }
+
+    .comment>li {
+      padding: 5px;
+    }
+
     .full-header {
       width: 100%;
       /* 헤더만 1920고정 시켰음 */
@@ -223,6 +299,39 @@
       }
     }
 
+    @media screen and (max-width : 900px) {
+      .wrapper {
+        max-width: 900px;
+      }
+
+      .main {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .submain {
+        width: 100%;
+        height: auto;
+      }
+
+      .subtitle {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        /* margin-bottom: 12px; */
+      }
+
+      .board {
+        width: 100%;
+
+      }
+
+      .t4 {
+        height: auto;
+      }
+
+    }
+
     @media (max-width: 768px) {
       .header-inner {
         flex-direction: column;
@@ -376,9 +485,107 @@
   <!-- 우측으로 980정렬로 맞춰놨기때문에 좌측 300은 혜연님이 만드신 사이드바 추가하면될듯 -->
   <div class="wrapper">
     <!-- 사이드바 들어갈 곳 -->
-    <div class="empty-space">
-      <iframe src="../자유게시판/서브메뉴+text.html" width="300px" height="1000px" style="border: none"></iframe>
-      <!-- 사이드바 코드 넣을부분 넣고 되는지 안되는지 확인해야됌 -->
+    <div class="cal">
+      <div class="subtitle">
+        <div class="icon">
+          <span class="material-symbols-outlined chat_icon">
+            chat
+          </span>
+        </div>
+        <div class="subtitle_text">민원소통참여</div>
+      </div>
+      <div class="submain">
+        <section>
+          <div class="comment-tog tog1">
+            <p>민원실 안내</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>종합민원실 안내</li>
+            <li>복합민원상담 사전예약</li>
+            <li>정부24</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p>두드리소(민원신청)</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>두드리소란</li>
+            <li>민원신청</li>
+            <li>찾아가는 민원</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p><a href="javascript:void(0)">시청안내</a></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+              <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+            </svg>
+          </div>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p>공익제보</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>공익제보란?</li>
+            <li>공익제보자 보호 및 보상 제도</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p><a href="javascript:void(0)">공공재정 부정청구 신고</a></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+              <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+            </svg>
+          </div>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p>행정서비스 현장</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>헌장전문</li>
+            <li>공통이행기준</li>
+            <li>분야별이행기준</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1 tog2">
+            <p>시민참여</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment comment2">
+            <li>자유게시판</li>
+            <li>칭찬합시다</li>
+            <li>시민 생활안전 지킴이</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p><a href="javascript:void(0)">제안/설문/투표</a></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+              <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+            </svg>
+          </div>
+        </section>
+      </div>
     </div>
     <div class="container">
       <div class="page-title">시청사 안내</div>
