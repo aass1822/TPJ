@@ -8,9 +8,86 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./basic동.css">
   <style>
-    .tab-menu button.active { /* 클릭시 버튼색깔 변경 내가 지금 어디 페이지인지 확인할 때 필요해서 넣음 */
+    .tab-menu button.active {
+      /* 클릭시 버튼색깔 변경 내가 지금 어디 페이지인지 확인할 때 필요해서 넣음 */
       background-color: royalblue;
       color: white;
+    }
+
+    .subtitle {
+      position: relative;
+      width: 240px;
+      height: 50px;
+      border-radius: 5px;
+      background-color: #000080;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-bottom: 12px;
+
+    }
+
+    .submain {
+      position: relative;
+      width: 240px;
+      height: 500px;
+    }
+
+    .comment-tog {
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 10px;
+      width: 100%;
+      height: 43px;
+
+    }
+
+    .tog1 {
+      padding-right: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+
+    }
+
+
+    .comment-tog>p {
+      margin: 0;
+    }
+
+    .comment-tog>p>a {
+      color: black;
+      text-decoration-line: none;
+    }
+
+    #arrow {
+      position: relative;
+      top: 3px;
+      right: 5px;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid black;
+      border-left: 2px solid black;
+      transform: rotate(-135deg);
+    }
+
+    .comment {
+      display: none;
+      list-style: '-';
+      padding-left: 20px;
+
+      /*  */
+      /*  */
+      margin: 10px;
+
+
+    }
+
+    .comment>li {
+      padding: 5px;
     }
 
     .full-header {
@@ -141,6 +218,7 @@
       padding: 12px;
       text-align: center;
     }
+
     table td {
       border: 1px solid gray;
       padding: 12px;
@@ -206,7 +284,7 @@
       padding: 14px 18px;
       border-radius: 50%;
       font-size: 18px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       transition: background-color 0.3s ease;
     }
 
@@ -214,81 +292,81 @@
       background-color: navy;
     }
 
-            footer.site-footer {
-            /* background-color: #f9f9f9;
+    footer.site-footer {
+      /* background-color: #f9f9f9;
             border-top: 1px solid #ddd;
             padding: 20px;
             margin-top: 50px; */
-            width: 100%;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
+      width: 100%;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
 
-        .site-footer .footer-container {
-            /* border-top: 1px solid lightgray ;
+    .site-footer .footer-container {
+      /* border-top: 1px solid lightgray ;
             background-color: rgb(248, 248, 248); */
-            
-            background-color: #f9f9f9;
-            border-top: 1px solid #ddd;
-            padding: 20px;
-            margin-top: 50px;
-            max-width: 960px;
-            margin: 0 auto;
-        }
 
-        .site-footer .feedback {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px;
+      margin-top: 50px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
 
-        .site-footer .choice {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    .site-footer .feedback {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
 
-        .site-footer .choices label {
-            margin-right: 10px;
-        }
+    .site-footer .choice {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        .site-footer .feedback button {
-            padding: 6px 14px;
-            background-color: #1f4fa4;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            white-space: nowrap;
-        }
+    .site-footer .choices label {
+      margin-right: 10px;
+    }
 
-        .site-footer .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
+    .site-footer .feedback button {
+      padding: 6px 14px;
+      background-color: #1f4fa4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
 
-        .site-footer .footer-info {
-            font-weight: bold;
-        }
+    .site-footer .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
 
-        .site-footer .footer-buttons {
-            display: flex;
-        }
+    .site-footer .footer-info {
+      font-weight: bold;
+    }
 
-        .site-footer .footer-buttons button {
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-left: 8px;
-            background-color: #f1f1f1;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-        }
+    .site-footer .footer-buttons {
+      display: flex;
+    }
+
+    .site-footer .footer-buttons button {
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-left: 8px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
     @media (max-width: 1280px) {
       .wrapper {
@@ -296,14 +374,48 @@
         flex-direction: column;
       }
 
-      .empty-space {
-        display: none;
+      .empty-space .iframe {
+        /* display: none; */
       }
 
       .container {
         width: 100%;
         padding: 20px;
       }
+
+    }
+
+    @media screen and (max-width : 900px) {
+      .wrapper {
+        max-width: 900px;
+      }
+
+      .main {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .submain {
+        width: 100%;
+        height: auto;
+      }
+
+      .subtitle {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        /* margin-bottom: 12px; */
+      }
+
+      .board {
+        width: 100%;
+
+      }
+
+      .t4 {
+        height: auto;
+      }
+
     }
 
     @media (max-width: 768px) {
@@ -382,12 +494,115 @@
     </div>
   </div>
 
+
   <!-- 우측으로 980정렬로 맞춰놨기때문에 좌측 300은 혜연님이 만드신 사이드바 추가하면될듯 -->
   <div class="wrapper">
     <!-- 사이드바 들어갈 곳 -->
-    <div class="empty-space">
-      <!-- 사이드바 코드 넣을부분 넣고 되는지 안되는지 확인해야됌 -->
+
+    <div class="cal">
+      <div class="subtitle">
+        <div class="icon">
+          <span class="material-symbols-outlined chat_icon">
+            chat
+          </span>
+        </div>
+        <div class="subtitle_text">민원소통참여</div>
+      </div>
+      <div class="submain">
+        <section>
+          <div class="comment-tog tog1">
+            <p>민원실 안내</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>종합민원실 안내</li>
+            <li>복합민원상담 사전예약</li>
+            <li>정부24</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p>두드리소(민원신청)</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>두드리소란</li>
+            <li>민원신청</li>
+            <li>찾아가는 민원</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p><a href="javascript:void(0)">시청안내</a></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+              <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+            </svg>
+          </div>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p>공익제보</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>공익제보란?</li>
+            <li>공익제보자 보호 및 보상 제도</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p><a href="javascript:void(0)">공공재정 부정청구 신고</a></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+              <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+            </svg>
+          </div>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p>행정서비스 현장</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment">
+            <li>헌장전문</li>
+            <li>공통이행기준</li>
+            <li>분야별이행기준</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1 tog2">
+            <p>시민참여</p>
+            <p id="arrow"></p>
+          </div>
+          <ul class="comment comment2">
+            <li>자유게시판</li>
+            <li>칭찬합시다</li>
+            <li>시민 생활안전 지킴이</li>
+          </ul>
+        </section>
+        <section>
+          <div class="comment-tog tog1">
+            <p><a href="javascript:void(0)">제안/설문/투표</a></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5" />
+              <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z" />
+            </svg>
+          </div>
+        </section>
+      </div>
     </div>
+    <!-- 사이드바 코드 넣을부분 넣고 되는지 안되는지 확인해야됌 -->
+
     <div class="container">
       <div class="page-title">시청사 안내</div>
       <div class="breadcrumb">대구소개 &gt; 시청안내 &gt; 시청사안내 &gt; 동인청사</div>
@@ -427,17 +642,20 @@
           <tr>
             <!-- <th>1</th> -->
             <th>3층</th>
-            <td>시장실 / 경제부시장실 / 국제관계대사 / 맑은물하이웨이추진단장 / 미래혁신성장실장 / 행정국장 / 경제국장 / 대구경북행정통합추진단장 / 미래혁신정책관 / 법제자문관 / 제1대회의실</td>
+            <td>시장실 / 경제부시장실 / 국제관계대사 / 맑은물하이웨이추진단장 / 미래혁신성장실장 / 행정국장 / 경제국장 / 대구경북행정통합추진단장 / 미래혁신정책관 / 법제자문관 / 제1대회의실
+            </td>
           </tr>
           <tr>
             <!-- <th>1</th> -->
             <th>2층</th>
-            <td>원스톱기업투자센터장 / 교통국장 / 경제정책관 / 신공항건설추진단(이전보상과, 공항건설지원과) / 기계로봇과 / 섬유패션과 / 농산유통과 / 도로과 / 제5회의실 / 정보통신2센터 / 마음의쉼터(심리상담실) / 민생회복 소비쿠폰(T/F)</td>
+            <td>원스톱기업투자센터장 / 교통국장 / 경제정책관 / 신공항건설추진단(이전보상과, 공항건설지원과) / 기계로봇과 / 섬유패션과 / 농산유통과 / 도로과 / 제5회의실 / 정보통신2센터 /
+              마음의쉼터(심리상담실) / 민생회복 소비쿠폰(T/F)</td>
           </tr>
           <tr>
             <!-- <th>1</th> -->
             <th>1층</th>
-            <td>교통정책과 / 버스운영과 / 기후환경정책과(기후환경기획팀, 탄소중립팀, 생활환경팀, 자연생태팀) / 행복민원실분소 / 문서실 / 영상회의실 / 제1회의실 / 제2회의실 / 제3회의실 / 제4회의실 / 대강당 / 기사송고실 / 청원경찰대상황실 / 휴게실 / IM뱅크</td>
+            <td>교통정책과 / 버스운영과 / 기후환경정책과(기후환경기획팀, 탄소중립팀, 생활환경팀, 자연생태팀) / 행복민원실분소 / 문서실 / 영상회의실 / 제1회의실 / 제2회의실 / 제3회의실 /
+              제4회의실 / 대강당 / 기사송고실 / 청원경찰대상황실 / 휴게실 / IM뱅크</td>
           </tr>
           <tr>
             <th colspan="2">102동</th>
@@ -574,35 +792,35 @@
             <th>1층</th>
             <td>건축과 / 주택과 / 토지정보과 / 민원대기실</td>
           </tr>
-        
-          
+
+
 
         </table>
       </section>
-                        <bottom class="site-footer">
-                    <div class="footer-container">
-                        <p><strong>현재페이지의 내용과 사용편의성에 만족하십니까?</strong></p>
+      <bottom class="site-footer">
+        <div class="footer-container">
+          <p><strong>현재페이지의 내용과 사용편의성에 만족하십니까?</strong></p>
 
-                        <form class="feedback">
-                            <div class="choice">
-                                <label><input type="radio" name="feedback" /> 매우 만족</label>
-                                <label><input type="radio" name="feedback" /> 만족</label>
-                                <label><input type="radio" name="feedback" /> 보통</label>
-                                <label><input type="radio" name="feedback" /> 불만족</label>
-                                <label><input type="radio" name="feedback" /> 매우 불만족</label>
-                            </div>
-                            <button type="submit">평가하기</button>
-                        </form>
+          <form class="feedback">
+            <div class="choice">
+              <label><input type="radio" name="feedback" /> 매우 만족</label>
+              <label><input type="radio" name="feedback" /> 만족</label>
+              <label><input type="radio" name="feedback" /> 보통</label>
+              <label><input type="radio" name="feedback" /> 불만족</label>
+              <label><input type="radio" name="feedback" /> 매우 불만족</label>
+            </div>
+            <button type="submit">평가하기</button>
+          </form>
 
-                        <div class="footer-bottom">
-                            <div class="footer-info">전화번호 │ 053-120</div>
-                            <div class="footer-buttons">
-                                <button>행정조직도</button>
-                                <button>찾아오시는길</button>
-                            </div>
-                        </div>
-                    </div>
-                </bottom>
+          <div class="footer-bottom">
+            <div class="footer-info">전화번호 │ 053-120</div>
+            <div class="footer-buttons">
+              <button>행정조직도</button>
+              <button>찾아오시는길</button>
+            </div>
+          </div>
+        </div>
+      </bottom>
 
 
     </div>

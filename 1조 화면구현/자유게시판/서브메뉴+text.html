@@ -19,9 +19,9 @@
             font-size: 24px;
         }
 
-        .big-icon {
+        /* .big-icon {
             font-size: 100px;
-        }
+        } */
 
         .chat_icon {
             font-size: 30px;
@@ -79,7 +79,7 @@
             padding-right: 10px;
             display: flex;
             justify-content: space-between;
-
+            margin: 5px 0;
         }
 
 
@@ -110,8 +110,9 @@
             margin: 10px;
 
         }
-        .comment>li{
-           padding: 5px;
+
+        .comment>li {
+            padding: 5px;
         }
 
         .show {
@@ -179,10 +180,38 @@
             height: 100%;
         }
 
-        
+        @media screen and (max-width : 900px) {
+            .wrapper {
+                max-width: 900px;
+            }
 
+            .main {
+                flex-direction: column;
+                gap: 30px;
+            }
 
+            .submain {
+                width: 100%;
+                height: auto;
+            }
 
+            .subtitle {
+                position: relative;
+                width: 100%;
+                height: 50px;
+                /* margin-bottom: 12px; */
+            }
+
+            .board {
+                width: 100%;
+
+            }
+
+            .t4 {
+                height: auto;
+            }
+
+        }
     </style>
 
 
@@ -295,64 +324,64 @@
                 </div>
             </div>
 
-            
-
-    <script>
-
-        const toggle = document.querySelectorAll(".comment-tog");
-        toggle.forEach((tog) =>
-            tog.addEventListener("click", function () {
-                const cont = tog.nextElementSibling; //내가 클릭한 것의 형재 == comment
-                const cont2 = tog.firstElementChild;
-
-                cont.classList.toggle("show");
-
-                // console.log(cont.classList.value); // comment show / comment
-                // console.log(value1 =='comment'); // flase / true
-
-                const value1 = cont.classList.value;
 
 
-                if ((value1 == 'comment') == false) {
-                    //comment show
-                    tog.style.backgroundColor = "#4174b9";
-                    cont2.setAttribute("style", " padding: 0;width:100%; height: 100%; color:white;");
+            <script>
 
-                    // 추가 테스트
+                const toggle = document.querySelectorAll(".comment-tog");
+                toggle.forEach((tog) =>
+                    tog.addEventListener("click", function () {
+                        const cont = tog.nextElementSibling; //내가 클릭한 것의 형재 == comment
+                        const cont2 = tog.firstElementChild;
 
-                    if (cont.classList.contains("show")) { //전 comment가 열려있다면 
-                        const cont3 = document.querySelectorAll(".comment")  
-                        cont3.forEach(c => {
-                            if (c !== cont) {       //comment ==  전comment
-                                c.classList.remove("show"); //comment 닫힘
+                        cont.classList.toggle("show");
 
-                                const othertog = c.previousElementSibling;  //닫힌comment의 윗 형재 변수 지정 
-                                if (othertog) {
-                                    othertog.style.backgroundColor = "white";
-                                    if (othertog.firstElementChild) {
-                                        othertog.firstElementChild.setAttribute("style","padding: 0; width:100%; height: 100%; color:black;"
-                                        );
+                        // console.log(cont.classList.value); // comment show / comment
+                        // console.log(value1 =='comment'); // flase / true
+
+                        const value1 = cont.classList.value;
+
+
+                        if ((value1 == 'comment') == false) {
+                            //comment show
+                            tog.style.backgroundColor = "#4174b9";
+                            cont2.setAttribute("style", " padding: 0;width:100%; height: 100%; color:white;");
+
+                            // 추가 테스트
+
+                            if (cont.classList.contains("show")) { //전 comment가 열려있다면 
+                                const cont3 = document.querySelectorAll(".comment")
+                                cont3.forEach(c => {
+                                    if (c !== cont) {       //comment ==  전comment
+                                        c.classList.remove("show"); //comment 닫힘
+
+                                        const othertog = c.previousElementSibling;  //닫힌comment의 윗 형재 변수 지정 
+                                        if (othertog) {
+                                            othertog.style.backgroundColor = "white";
+                                            if (othertog.firstElementChild) {
+                                                othertog.firstElementChild.setAttribute("style", "padding: 0; width:100%; height: 100%; color:black;"
+                                                );
+                                            }
+                                        }
                                     }
-                                }
+                                });
                             }
-                        });
-                    }
-                    // 테스트 끝
-                }
-                else {
-                    //comment 
-                    tog.style.backgroundColor = "white";
-                    cont2.setAttribute("style", " padding: 0;width:100%; height: 100%; color:black;");
-                }
+                            // 테스트 끝
+                        }
+                        else {
+                            //comment 
+                            tog.style.backgroundColor = "white";
+                            cont2.setAttribute("style", " padding: 0;width:100%; height: 100%; color:black;");
+                        }
 
-            })
-        );
+                    })
+                );
 
 
 
 
 
-    </script>
+            </script>
 
 </body>
 
