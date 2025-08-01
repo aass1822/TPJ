@@ -478,7 +478,7 @@
             border-radius: 10px;
         }
 
-        .write-button button {
+        .write-button a {
             padding: 10px 20px;
             background-color: #005bac;
             color: white;
